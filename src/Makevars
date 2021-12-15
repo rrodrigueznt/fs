@@ -19,15 +19,12 @@ endif
 ifeq ($(UNAME), OpenBSD)
 PKG_LIBS += -lkvm
 endif
-ifneq ($(filter $(UNAME), Linux AIX OS400),)
-OBJECTS +=  bsd/setmode.o bsd/strmode.o bsd/reallocarray.o
-endif
 ifeq ($(UNAME), Linux)
 	ifeq ($(UNAMEO), Android)
 	HOST = --host=$(shell clang -print-target-triple)
 	endif
-OBJECTS +=  bsd/setmode.o bsd/strmode.o bsd/reallocarray.o
-endif
+ OBJECTS +=  bsd/setmode.o bsd/strmode.o bsd/reallocarray.o
+ endif
 
 PKG_CPPFLAGS = -I./$(LIBUV)/include -I. -pthread
 
