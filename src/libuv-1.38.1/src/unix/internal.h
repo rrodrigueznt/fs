@@ -70,7 +70,7 @@
 # define UV__PATH_MAX 8192
 #endif
 
-#if defined(__ANDROID__)
+#if defined(__ANDROID__) && !defined(__TERMUX__)
 int uv__pthread_sigmask(int how, const sigset_t* set, sigset_t* oset);
 # ifdef pthread_sigmask
 # undef pthread_sigmask
